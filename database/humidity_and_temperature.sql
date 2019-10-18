@@ -30,7 +30,10 @@ CREATE TABLE `humidity_and_temperature_values` (
   `temperature` decimal(4,2) NOT NULL,
   `humidity` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `mac_index` (`mac`),
+  KEY `mac_created_at_index` (`mac`,`created_at`),
+  KEY `created_at_index` (`created_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -43,4 +46,4 @@ CREATE TABLE `humidity_and_temperature_values` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-18 14:59:43
+-- Dump completed on 2019-10-18 15:05:41
