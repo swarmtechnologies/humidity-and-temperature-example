@@ -44,7 +44,7 @@ if ($mysqli->connect_errno) {
 *	la base de datos consta de sólo una tabla llamada "values", la cual contiene
 *	tres campos que deben ingresarse para insertar datos (mac, temperature y humidity)
 */
-$sql = "INSERT INTO humidity_and_temperature.values (mac, temperature, humidity) VALUES ('$mac', $temperature, $humidity)";
+$sql = "INSERT INTO humidity_and_temperature_values (mac, temperature, humidity) VALUES ('$mac', $temperature, $humidity)";
 //Si la consulta a la base de datos falló, necesitamos saberlo, así que generamos un mensaje
 if (!$resultado = $mysqli->query($sql)) {
     $response = [
