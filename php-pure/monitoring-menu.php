@@ -68,6 +68,14 @@
           </div>
         </div>
       </form>
+      <br />
+      <form method="get" action="select-device.php">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+             <button type="submit" class="btn btn-block btn-info">Volver al selector de dispositivo</button>
+          </div>
+        </div>
+      </form>
     </div>
 
     <!-- Optional JavaScript -->
