@@ -65,15 +65,6 @@ if (!$resultado = $mysqli->query($sql)) {
        <input type="hidden" name="mac" value="<?php echo $mac;?>">
        <button type="submit" class="btn btn-primary">Volver al menú</button>
       </form>
-      <br />
-        <div class="row justify-content-center">
-          <form method="post" action="monitoring-menu.php">
-            <div class="col-md-3 text-right">
-               <input type="hidden" name="mac" value="<?php echo $mac;?>">
-               <button type="submit" class="btn btn-primary">Volver al menú</button>
-            </div>
-          </form>
-        </div>
         <div class="row justify-content-center">
           <div class="col-md-8">
             <table class="table table-hover">
