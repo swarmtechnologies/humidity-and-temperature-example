@@ -80,7 +80,9 @@ while($values = mysqli_fetch_assoc($resultado)){
     <!-- Biblioteca de gráficos de google -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+    //Aquí se señala qué paquetes necesitamos de la biblioteca de google charts
     google.charts.load('current', {packages: ['corechart', 'line']});
+    //Esta línea declara qué función se ejecutará cuando los paquetes sean cargados
     google.charts.setOnLoadCallback(drawCharts);
 
     function drawCharts() {
@@ -88,6 +90,8 @@ while($values = mysqli_fetch_assoc($resultado)){
       var humidityData = <?php echo json_encode($humidityData);?>;
       var temperatureData = <?php echo json_encode($temperatureData);?>;
 
+      //Se recorren ambos arrays para formatear la fecha y parsear el valor
+      //Google charts pide que las fechas sean un obejto Date de javascript
       humidityData.forEach(function(currentArray, index, arr){
         arr[index][0] = new Date(arr[index][0]);
         arr[index][1] = parseInt(arr[index][1]);
@@ -98,7 +102,7 @@ while($values = mysqli_fetch_assoc($resultado)){
       });
 
 
-
+      //Se setean los parámetros del gráfico de humedad
       var dataH = new google.visualization.DataTable();
       dataH.addColumn('datetime', 'Tiempo');
       dataH.addColumn('number', 'Humedad');
@@ -111,9 +115,11 @@ while($values = mysqli_fetch_assoc($resultado)){
         },
         vAxis: {
           title: 'Humedad Relativa (%)'
-        }
+        },
+        legend: { position: 'none' }
       };
 
+      //Se setean los parámetros del gráfico de temperatura
       var dataT = new google.visualization.DataTable();
       dataT.addColumn('datetime', 'Tiempo');
       dataT.addColumn('number', 'Temperatura');
@@ -125,9 +131,14 @@ while($values = mysqli_fetch_assoc($resultado)){
         },
         vAxis: {
           title: 'Temperatura (°C)'
-        }
+        },
+        legend: { position: 'none' },
+        series: [
+          {color: 'red'}
+        ]
       };
 
+      //Se cargan los gráficos en los divs de ids humidity_chart y temperature_chart
       var humidityChart = new google.visualization.LineChart(document.getElementById('humidity_chart'));
       humidityChart.draw(dataH, humidityOptions);
       var temperatureChart = new google.visualization.LineChart(document.getElementById('temperature_chart'));

@@ -30,9 +30,6 @@ if ($mysqli->connect_errno) {
 
 /*
 * Armamos la consulta SQL en una cadena de texto.
-* Como se estipula dentro de la carpeta "database" dentro de este mismo repositorio,
-* la base de datos consta de sólo una tabla llamada "values", la cual contiene
-* tres campos que deben ingresarse para insertar datos (mac, temperature y humidity)
 */
 $sql = "SELECT humidity, temperature, created_at FROM humidity_and_temperature_values WHERE mac = '$mac' ORDER BY id DESC LIMIT 20";
 //Si la consulta a la base de datos falló, necesitamos saberlo, así que generamos un mensaje
