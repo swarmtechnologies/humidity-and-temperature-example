@@ -59,13 +59,13 @@ $data['created_at'] = $dt->format('d-m-Y H:i:s');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Añado biblioteca paho que es un cliente MQTT para navegador -->
-    <script src="paho.javascript-1.0.3/paho-mqtt-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
     <script>
       //Guardamos la variable "mac" que pasó por POST
       var mac = '<?php echo $mac;?>';
       // Creamos una instancia de cliente
       var clientId = "swarm-educate";
-      clientId += new Date().getUTCMilliseconds();;
+      clientId += new Date().getUTCMilliseconds();
       var client = new Paho.MQTT.Client("educate.swarm.cl", 8080 , clientId);
 
       // Seteamos las funciones que se ejecutan ante estos eventos
