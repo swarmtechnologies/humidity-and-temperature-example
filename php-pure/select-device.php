@@ -71,6 +71,14 @@ if (!$resultado = $mysqli->query($sql)) {
             <button type="submit" class="btn btn-primary">Monitorear dispositivo</button>
           </div>
         </div>
+        <br/>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form method="get" action="index.html">
+              <button type="submit" class="btn btn-block btn-primary">Volver al menú principal</button>
+            </form>
+          </div>
+        </div>
       </form>
     </div>
 
