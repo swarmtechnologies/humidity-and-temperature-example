@@ -46,7 +46,8 @@ function saveStatus(message, mac){
   } 
   ).then(function (response) { 
       if(response.data.status == "OK"){ 
-        console.log("Status subido correctamente"); 
+        console.log("Paquete recibido desde " + mac);
+        console.log("El paquete contiene: humidity = " + mqttPackage.humidity + " y temperature = " + mqttPackage.temperature);
       }else{ 
           console.log(response.data.message); 
       } 
