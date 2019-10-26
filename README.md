@@ -68,6 +68,7 @@ _Como quinto y último paso debemos abrir el navegador y dirigirnos a nuestra ru
 _Si está todo correcto deberían ver un menú con tres botones, desde ahí ya pueden intentar navegar por la plataforma para descubrir si todo funciona e ir detectando errores._
 
 _Pueden hacer llegar sus dudas a daniel.perez@swarm.cl y estas serán contestadas lo antes posible._
+_Encontrarán en [este link](http://educate.swarm.cl/humidity-and-temperature-example/php-pure/) el proyecto funcionando. Siéntanse en toda libertad de revisar las funciones directamente desde ese link._
 
 ## Construido con 🛠️
 
