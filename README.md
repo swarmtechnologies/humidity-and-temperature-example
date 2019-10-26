@@ -97,6 +97,6 @@ _Encontrarán en [este link](http://educate.swarm.cl/humidity-and-temperature-ex
 ## Autores ✒️
 
 * **Daniel Pérez** - *Desarrollo de los ejemplos y comentarios en código*
-* **Samuel Muñoz** - *Test*
+* **Samuel Muñoz** - *Test y diagramas*
 ---
 ⌨️ con ❤️ por [Swarm Technologies](https://github.com/swarmtechnologies) 😊
