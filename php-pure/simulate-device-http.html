@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Simulate device HTTP - Humidity and temperature example</title>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h4>Simular un dispositivo HTTP</h4>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <div class="form-group">
+              <input class="form-control" type="text" id="mac">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" id="simulate" onclick="simulate();" class="btn btn-primary">Simular dispositivo</button>
+          </div>
+        </div>
+        <br/>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <button onclick="stop();" id="stop" type="submit" class="btn btn-block btn-primary" disabled>Dejar de simular</button>
+          </div>
+        </div>
+        <br/>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form method="get" action="index.html">
+              <button type="submit" class="btn btn-block btn-primary">Volver al menú principal</button>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      //Declaramos las variables globales
+      var interval = null;
+
+      //Declaramos las funciones
+      function simulate(){
+        //Obtemenos el valor del input donde se ingresó la mac a simular
+        var mac = document.getElementById('mac').value;
+        //Si el input no estaba vacío
+        if(mac !== ''){
+          console.log("Comenzando simulación. Envío de paquetes cada 15 segundos.");
+          //Instanciamos el objeto para realizar consultas HTTP
+          var xhr = new XMLHttpRequest();
+          //Utilizamos el mismo archivo que utiliza el programa mqtt-devices, ya que coinciden los mismos campos y el formato en el que se reciben
+          var url = "save-data-mqtt-devices.php";
+          //Creamos un interval que ejecute una request con números random cada 15 segundos
+          interval = setInterval(function(){
+            //Generamos una consulta HTTP con datos al azar
+            var humidity = getRandomArbitrary(50,70); //retorna un número entre 50 y 70
+            var temperature = getRandomArbitrary(15,30); //retorna un número entre 15 y 30
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    if(json.status == "OK"){
+                      console.log("Datos publicados correctamente");
+                    }
+                }
+            };
+            var data = JSON.stringify({"mac": mac, "humidity": humidity, "temperature": temperature});
+            xhr.send(data);
+          }, 15000);
+          //Le damos aspecto de bloqueado al botón de simular y desbloqueamos el botón de detener
+          document.getElementById('simulate').disabled = true;
+          document.getElementById('stop').disabled = false;
+        }else{
+          //Si estaba vacío el campo de la mac enviamos una alerta y no realizamos más acciones
+          alert("La mac del dipositivo a simular no puede estar vacía");
+        }
+      }
+
+      function stop(){
+        console.log("Detenida la simulación.");
+        //Detenemos el intervalo
+        clearInterval(interval);
+        //Le damos valor false a la variable simulating para que el resto del programa sepa que no se está haciendo la simulación
+        //Le damos aspecto de bloqueado al botón de detener y desbloqueamos el botón de simular
+        document.getElementById('simulate').disabled = false;
+        document.getElementById('stop').disabled = true;
+      }
+
+      // Retorna un número aleatorio entre min (incluido) y max (excluido) con dos decimales
+      function getRandomArbitrary(min, max) {
+        return (Math.random() * (max - min) + min).toFixed(2);
+      }
+    </script>
+  </body>
+</html>
