@@ -4,6 +4,10 @@ _Este proyecto es un ejemplo de un prototipo que hace uso de HTTP y MQTT para tr
 
 _Para quienes no tienen una NodeMCU para replicar por completo el proyecto (o simplemente no desean abordar esta materia) existen dos programas que simulan (usando HTTP y MQTT) el comportamiento de la NodeMCU dentro del sistema._
 
+_Los siguientes diagramas muestran de forma gráfica cómo viaja la información cuando utilizamos el ejemplo con MQTT y con HTTP:_
+
+_Funcionamiento del ejemplo con HTTP_
+
 ## Comenzando 🚀
 
 _Para obtener una copia de este proyecto sólo es necesario descargarlo o clonarlo directamente desde GitHub._
