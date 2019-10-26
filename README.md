@@ -1,8 +1,8 @@
 # humidity-and-temperature-example
 
-_Este proyecto es un ejemplo de uso de HTTP y MQTT para transmitir paquetes en una aplicación IoT que consiste en transmitir temperatura y humedad desde una NodeMCU utilizando un sensor DHT._
+_Este proyecto es un ejemplo de un prototipo que hace uso de HTTP y MQTT para transmitir paquetes en una aplicación IoT que consiste en transmitir temperatura y humedad desde una NodeMCU utilizando un sensor DHT._
 
-_Para quienes no tienen una NodeMCU para replicar por completo el proyecto (o simplemente no desean abordar esta materia) existen dos programas que simulan (usando HTTP y MQTT) el comportamiento de la NodeMCU dentro del sistema_
+_Para quienes no tienen una NodeMCU para replicar por completo el proyecto (o simplemente no desean abordar esta materia) existen dos programas que simulan (usando HTTP y MQTT) el comportamiento de la NodeMCU dentro del sistema._
 
 ## Comenzando 🚀
 
@@ -78,6 +78,8 @@ _Encontrarán en [este link](http://educate.swarm.cl/humidity-and-temperature-ex
 * [Biblioteca Dotenv](https://www.npmjs.com/package/dotenv) - Usado para manejar el archivo .env en el programa mqtt-devices y tener variables de entorno de ejecución
 * [Biblioteca Axios](https://www.npmjs.com/package/axios) - Usado para realizar consultas HTTP desde el programa mqtt-devices
 * [Paho](https://www.eclipse.org/paho/clients/js/) - Cliente MQTT usado por los ejemplos web de MQTT
+* [Google charts](https://developers.google.com/chart) - Biblioteca JavaScript de gráficos desarrollada por Google
+* [Bootstrap 4](https://getbootstrap.com/) - Framework CSS
 * [Biblioteca DHT de Adafruit](https://github.com/adafruit/DHT-sensor-library) - Utilizada por los dos ejemplos de NodeMCU en su versión 1.2.0
 * [Cliente MQTT para Arduino](https://github.com/knolleary/pubsubclient) - Utilizada por el ejemplo MQTT de NodeMCU
 * [Pluggin ESP8266 para Arduino IDE](https://github.com/esp8266/esp8266.github.io) - Utilizada para desarrollar en la NodeMCU o ESP8266 desde el IDE de Arduino
