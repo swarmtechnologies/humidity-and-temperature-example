@@ -8,6 +8,12 @@ _Los siguientes diagramas muestran de forma gráfica cómo viaja la información
 
 _Funcionamiento del ejemplo con HTTP_
 
+![Diagrama de funcionamiento con HTTP](https://raw.githubusercontent.com/swarmtechnologies/humidity-and-temperature-example/master/diagramas-de-funcionamiento/funcionamiento_ejemplo_http.png)
+
+_Funcionamiento del ejemplo con MQTT_
+
+![Diagrama de funcionamiento con MQTT](https://raw.githubusercontent.com/swarmtechnologies/humidity-and-temperature-example/master/diagramas-de-funcionamiento/funcionamiento_ejemplo_mqtt.png)
+
 ## Comenzando 🚀
 
 _Para obtener una copia de este proyecto sólo es necesario descargarlo o clonarlo directamente desde GitHub._
