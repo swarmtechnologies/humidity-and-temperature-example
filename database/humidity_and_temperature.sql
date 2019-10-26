@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `humidity_and_temperature` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `humidity_and_temperature`;
 -- MySQL dump 10.13  Distrib 8.0.17, for Linux (x86_64)
 --
 -- Host: smartu.ccewo52lnmnf.us-east-1.rds.amazonaws.com    Database: humidity_and_temperature
